@@ -24,7 +24,8 @@
   "main": "./webtasks.js",
   "dependencies": {
     "subtask": "0.0.2",
-    "express": "4.9.8"
+    "express": "4.9.8",
+    "express-handlebars": "1.1.0"
   },
   "scripts": {
     "coverage": "istanbul cover -- _mocha",
