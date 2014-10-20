@@ -2,10 +2,14 @@
 'use strict';
 
 var express = require('express'),
+    exphbs = require('express-handlebars'),
     app = module.exports = express();
 
+app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
+app.set('view engine', '.hbs');
+
 app.get('/', function (req, res) {
-    res.send('OK! this is a page....');
+    res.render('index', {title: 'test title'});
 });
 
 /* istanbul ignore next */
