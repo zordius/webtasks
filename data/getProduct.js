@@ -1,7 +1,8 @@
 /*jslint node: true */
 'use strict';
 
-var task = require('subtask');
+var task = require('subtask'),
+    apicalls = 0;
 
 module.exports = function (product_id) {
     // example: input validation
@@ -17,10 +18,12 @@ module.exports = function (product_id) {
                 return cb();
             }
 
+            console.log('product api called ' + (++apicalls));
+
             cb({
                 title: 'this is sample product title (id=' + product_id + ')',
                 description: 'sample product description',
-                price: product_id * 100
+                price: product_id * 100,
             });
         }, 100);
     });
