@@ -5,7 +5,6 @@ var express = require('express'),
     webtask = require('./lib/webtask'),
     app = module.exports = express();
 
-
 webtask.init(app);
 
 /* istanbul ignore next */
