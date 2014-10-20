@@ -1,0 +1,53 @@
+{
+  "name": "webtasks",
+  "version": "0.0.1",
+  "description": "A lightweight web framework based on express and subtask.js",
+  "author": "Zordius <zordius@yahoo-inc.com>",
+  "contributors": [
+    {
+      "name": "Zordius Chen",
+      "email": "zordius@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zordius/webtasks.git"
+  },
+  "keywords": [
+    "async",
+    "subtask",
+    "promise",
+    "framework",
+    "web",
+    "express"
+  ],
+  "dependencies": {
+    "subtask": "0.0.2",
+    "express": "4.9.8"
+  },
+  "scripts": {
+    "coverage": "istanbul cover -- _mocha",
+    "lint": "jshint",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "istanbul": "*",
+    "mocha": "*"
+  },
+  "optionalDependencies": {
+    "jshint": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zordius/webtasks/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/zordius/webtasks/blob/master/LICENSE.txt"
+    }
+  ]
+}
