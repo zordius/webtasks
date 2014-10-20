@@ -5,12 +5,15 @@ var task = require('subtask');
 
 module.exports = function (CX) {
     return task(function (cb) {
-        cb({
-            layout: 'page_default',
-            data: {
-                title: 'Sample page',
-                bodyGroup: ['This is a test~~']
-            }
+        task({
+            title: 'Sample page',
+            headerGroup: ['fake header'],
+            bodyGroup: ['This is a test~~']
+        }).execute(function (R) {
+            cb({
+                layout: 'page_default',
+                data: R
+            });
         });
     });
 };
