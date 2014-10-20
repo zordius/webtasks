@@ -6,9 +6,10 @@ var task = require('subtask');
 module.exports = function (CX) {
     return task(function (cb) {
         cb({
-            layout: 'index',
+            layout: 'page_default',
             data: {
-                title: 'This is a test~~'
+                title: 'Sample page',
+                bodyGroup: ['This is a test~~']
             }
         });
     });
