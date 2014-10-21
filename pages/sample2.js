@@ -4,13 +4,17 @@
 module.exports = function () {
     return this.task({
         title: this.query('id').pipe(this.data('getProduct')).pick('title'),
-        headerGroup: ['fake header'],
-        product: this.query('id').pipe(this.module('product')).pipe(this.render)
+        headerModule: this.data('getUser')(), //.pipe(this.module('header')).pipe(this.render),
+        productModule: this.query('id').pipe(this.module('product')).pipe(this.render)
     }).transform(function (R) {
-        R.bodyGroup = [R.product];
+        console.log(R);
         return {
             layout: 'page_default',
-            data: R
+            data: {
+                title: R.title,
+                headerGroup: [R.headerModule],
+                bodyGroup: [R.productModule]
+            }
         };
     });
 };

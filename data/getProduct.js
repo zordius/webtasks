@@ -9,10 +9,7 @@ module.exports = function (product_id) {
         return this.task();
     }
 
-console.log('data - get product ....' + product_id);
-
     return this.task(function (cb) {
-console.log('in get product....');
         // example: async call to get product
         setTimeout(function() {
             // example: data validation after async tasks done
@@ -24,7 +21,7 @@ console.log('in get product....');
 
             cb({
                 title: 'this is sample product title (id=' + product_id + ')',
-                description: 'sample product description',
+                description: 'sample product description' + apicalls,
                 price: product_id * 100,
             });
         }, 100);
