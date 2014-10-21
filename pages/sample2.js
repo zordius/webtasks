@@ -5,7 +5,7 @@ module.exports = function () {
     return this.dtask({
         title: this.query('id').pipe(this.data('getProduct')).pick('title'),
         headerGroup: ['fake header'],
-        product: this.query('id').pipe(this.module('product')).pipe(this.render())
+        product: this.query('id').pipe(this.module('product')).pipe(this.render)
     }).transform(function (R) {
         R.bodyGroup = [R.product];
         return {

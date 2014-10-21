@@ -9,7 +9,7 @@ webtask.init(app);
 
 /* istanbul ignore next */
 if (!module.parent) {
-    app.webtask(app.page('sample'));
+    app.webtask(app.page('sample2'));
     app.listen(3000);
     console.log('Webtasks started on port 3000');
 }
