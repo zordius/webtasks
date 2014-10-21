@@ -4,7 +4,7 @@
 module.exports = function () {
     return this.task({
         title: this.query('id').pipe(this.data('getProduct')).pick('title'),
-        headerModule: this.data('getUser')(), //.pipe(this.module('header')).pipe(this.render),
+        headerModule: this.data('getUser')().pipe(this.module('header')).pipe(this.render),
         productModule: this.query('id').pipe(this.module('product')).pipe(this.render)
     }).transform(function (R) {
         console.log(R);
