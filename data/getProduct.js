@@ -6,12 +6,12 @@ var apicalls = 0;
 module.exports = function (product_id) {
     // example: input validation
     if (!product_id) {
-        return this.dtask();
+        return this.task();
     }
 
 console.log('data - get product ....' + product_id);
 
-    return this.dtask(function (cb) {
+    return this.task(function (cb) {
 console.log('in get product....');
         // example: async call to get product
         setTimeout(function() {
@@ -28,5 +28,5 @@ console.log('in get product....');
                 price: product_id * 100,
             });
         }, 100);
-    });
+    }, product_id);
 };
