@@ -1,16 +1,18 @@
 /*jslint node: true */
 'use strict';
 
-var task = require('subtask'),
-    apicalls = 0;
+var apicalls = 0;
 
 module.exports = function (product_id) {
     // example: input validation
     if (!product_id) {
-        return task();
+        return this.dtask();
     }
 
-    return task(function (cb) {
+console.log('data - get product ....' + product_id);
+
+    return this.dtask(function (cb) {
+console.log('in get product....');
         // example: async call to get product
         setTimeout(function() {
             // example: data validation
