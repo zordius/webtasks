@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html class="{{page_class}}">
+<head>
+<title>{{title}}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{{#each meta}}
+<meta name="{{name}}" content="{{content}}/>
+{{/each}}
+{{#each ogmeta}}
+<meta property="og:{{property}}" content="{{content}}"/>
+{{/each}}
+{{#each link}}
+<link rel="{{rel}}" type="{{type}}"  href="{{href}}" />
+{{/each}}
+</head>
+<body class="{{body_class}}">
+<div class="mainFrame">
+ <div class="headerGroup">
+ {{#each headerGroup}}{{{.}}}{{/each}}
+ </div>
+ <div class="bodyGroup">
+ {{#each bodyGroup}}{{{.}}}{{/each}}
+ </div>
+ <div class="footerGroup">
+ {{#each footerGroup}}{{{.}}}{{/each}}
+ </div>
+</div>
+</body>
+</html>
