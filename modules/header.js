@@ -3,9 +3,6 @@
 
 module.exports = function (user_id) {
     return this.task({
-        layout: 'header',
-        data: {
-            user_id: user_id
-        }
+        user_id: user_id
     });
 };
