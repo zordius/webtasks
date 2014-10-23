@@ -9,7 +9,9 @@ webtask.init(app);
 
 /* istanbul ignore next */
 if (!module.parent) {
-    app.webtask(app.page('sample2'));
+    //app.webtask(app.page('sample2'));
+    //app.webtask(app.module('header'));
+    app.webtask(app.ajax('getProduct'));
     app.listen(3000);
     console.log('Webtasks started on port 3000');
 }
