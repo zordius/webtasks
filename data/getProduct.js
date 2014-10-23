@@ -5,6 +5,7 @@ var apicalls = 0;
 
 module.exports = function (product_id) {
     // example: input validation
+console.log('product id: ' + product_id);
     if (!product_id) {
         return this.task();
     }
