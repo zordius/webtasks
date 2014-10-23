@@ -2,7 +2,8 @@
 'use strict';
 
 module.exports = function () {
-    var name = 'user_' + this.req.cookies.username;
-    console.log('user name: ' + name);
-    return this.task(name);
+    return this.cookie('username').transform(function (R) {
+        console.log('user name: user_' + R);
+        return 'user_' + R;
+    });
 };
