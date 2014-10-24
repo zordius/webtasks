@@ -17,3 +17,55 @@ Make developer decouple complex web application logic into small logic pieces to
 * **Data**: call api or get data from storage
 * **Module**: handle presentation logics then rendered with a view
 * **Page**: composite modules then rendered with a view
+
+Getting Started
+---------------
+
+**Create your app**
+
+```
+npm init
+npm install webtasks --save
+```
+
+** Hello World**
+
+* Create a page webtask in `./page/hello.js`:
+
+```javascript
+/*jslint node: true */                                                                                  
+'use strict';
+
+module.exports = function () {
+    return this.task({
+        title: 'Good!',
+        description: 'Hello World'
+    });
+};
+```
+
+* Create a handlebars.js view for hello.js in `.view/page_hello.hbs` :
+
+```
+<html>
+<head>
+<title>{{title}}</title>
+</head>
+<body>
+{{description}}
+</body>
+</html>
+```
+
+* Create a express.js server in `./server.js` :
+
+```javascript
+/*jslint node: true */
+'use strict';
+
+var app = require('webtasks');
+
+app
+.webtask(app.page('hello'))
+.listen(3000);
+```
