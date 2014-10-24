@@ -106,7 +106,7 @@ dataGetArticle = function (id) {
 };
 ```
 
-All `data('getArticle')` with same id in this request are same webtask instance, the API call will be executed only one time. Another good news is all webtask/subtask are executed parallel, you get performance boost without any cache! And, all webtasks focus on handle jobs for itself, ......
+All `data('getArticle')` with same id in this request refer to single webtask instance, the API call will be executed only one time in a request. Another good news is all webtask/subtask are executed parallel, you get performance boost. And, all webtasks focus on handle jobs for itself, ......
 
 Page Component
 --------------
@@ -131,5 +131,15 @@ Input is a webtask without view and focus on get and process inputs from request
 AJAX Component
 --------------
 
+AJAX is a webtask without view and focus on response json by different request. Actually AJAX is normal webtask placed under `ajax` directory, and in most case it will execute input and data subtasks.
+
 Context API
 -----------
+
+* `this.param`
+* `this.header`
+* `this.cookie`
+* `this.page`
+* `this.module`
+* `this.data`
+* `this.input`
