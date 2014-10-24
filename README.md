@@ -30,7 +30,7 @@ npm install webtasks --save
 
 ** Hello World**
 
-* Create a page webtask in `./page/hello.js`:
+* Create a page webtask in `page/hello.js`:
 
 ```javascript
 /*jslint node: true */                                                                                  
@@ -44,7 +44,7 @@ module.exports = function () {
 };
 ```
 
-* Create a handlebars.js view for hello.js in `.view/page_hello.hbs` :
+* Create a handlebars.js view for hello.js in `view/page_hello.hbs` :
 
 ```
 <html>
@@ -57,7 +57,7 @@ module.exports = function () {
 </html>
 ```
 
-* Create a express.js server in `./server.js` :
+* Create a express.js server in `server.js` :
 
 ```javascript
 /*jslint node: true */
