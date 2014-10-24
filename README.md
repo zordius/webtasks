@@ -44,7 +44,7 @@ module.exports = function () {
 };
 ```
 
-* Create a handlebars.js view for hello.js in `view/page_hello.hbs` :
+* Create a <a href="http://handlebarsjs.com/">handlebars.js</a> view for hello.js in `view/page_hello.hbs` :
 
 ```
 <html>
@@ -57,7 +57,7 @@ module.exports = function () {
 </html>
 ```
 
-* Create a express.js server in `server.js` :
+* Create a <a href="http://expressjs.com/">express</a> server in `server.js` :
 
 ```javascript
 /*jslint node: true */
@@ -75,3 +75,61 @@ app
 ```sh
 node server.js
 ```
+
+About Webtask
+-------------
+
+Webtask is extended from <a href="https://github.com/zordius/subtask.js">subtask</a> with <a href="#context-api">Context API</a> . Webtasks are automatic singleton per-request, developers do not need to worry about api optimization or task sequence.
+
+For example, to deliver a article page for login user brings this task depdency:
+
+```
+[checkLogin] -> [getArticle] -> [setPageTitle] -> [composeModules]
+```
+
+If we add another module depdent on another data source, then the module tasks will be appended after composeModules and make the task queue longer. When we try to speed up html deliver time, we will mess up the module composite tasks and data tasks.
+
+When this done by webtasks it will like:
+
+```javascript
+// NOTE: pseudo code
+articlePage = webtask({
+    isLogin: input('isLogin'),
+    title: param('id').pipe(data('getArticle')).pick('title'),
+    story: param('id').pipe(module('article')),
+});
+
+articleModule = param('id').pipe(data('getArticle'));
+
+dataGetArticle = function (id) {
+    return webtask( ..... call API by id );
+};
+```
+
+All `data('getArticle')` with same id in this request are same webtask instance, the API call will be executed only one time. Another good news is all webtask/subtask are executed parallel, you get performance boost without any cache! And, all webtasks focus on handle jobs for itself, ......
+
+Page Component
+--------------
+
+Page is a webtask which will be rendered by a handlebars.js temlpate view. All pages are placed under `page` directory, and all views for pages are placed under `view` directory with `page_*` prefix.
+
+Module Component
+----------------
+
+Module is a webtask which will be rendered by a handlebars.js temlpate view. All modules are placed under `module` directory, and all views for pages are placed under `view` directory with `module_*` prefix. The behavior of a module or a page are exact same, they are named differently for concept reason.
+
+Data Component
+--------------
+
+Data is a webtask without view and focus on get and processs data. All data are placed under `data` directory.
+
+Input Component
+---------------
+
+Input is a webtask without view and focus on get and process inputs from request, all inputs are places under `input` directory. The behavior of a input or a data are exact same, they are named differently for concept reason.
+
+AJAX Component
+--------------
+
+Context API
+-----------
