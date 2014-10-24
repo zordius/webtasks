@@ -28,7 +28,7 @@ npm init
 npm install webtasks --save
 ```
 
-** Hello World**
+**Hello World**
 
 * Create a page webtask in `page/hello.js`:
 
