@@ -8,6 +8,9 @@ Features
 
 Make developer decouple complex web application logic into small logic pieces to help them reuse them, and speed up implement and testing.
 
+* All logical components are webtasks in commonjs.
+* All webtask are async.
+
 **Logical components in this framework**
 
 * **Input**: focus on deal with params or other request based inputs
