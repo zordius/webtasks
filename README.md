@@ -69,3 +69,9 @@ app
 .webtask(app.page('hello'))
 .listen(3000);
 ```
+
+* Start the server and browse http://localhost:3000/ :
+
+```sh
+node server.js
+```
