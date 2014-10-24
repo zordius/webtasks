@@ -6,7 +6,7 @@ A lightweight web framework based on <a href="https://github.com/strongloop/expr
 Features
 --------
 
-Make developer decouple complex web application logic into small logic pieces to help them reuse them, and speed up implement and testing.
+Make developer decouple complex web application logic into small logic pieces for reusing, and speed up implement and testing.
 
 * All logical components are webtasks in commonjs.
 * All webtask are async.
