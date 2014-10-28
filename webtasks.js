@@ -6,6 +6,7 @@ var express = require('express'),
     app = module.exports = express();
 
 webtask.init(app);
+require('node-jsx').install({extension: '.jsx'});
 
 /* istanbul ignore next */
 if (!module.parent) {

@@ -1,3 +1,4 @@
+/** @jsx React.DOM */
 module.export = require('react').createClass({
     render: function () {
         return (
