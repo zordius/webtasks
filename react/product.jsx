@@ -4,7 +4,7 @@ var React = require('react'),
 
 Product = React.createClass({
     getInitialState: function () {
-        return {selectedSpec: 0}
+        return {selectedSpec: 1}
     },
     handleSpecChange: function () {
         this.setState({selectedSpec: event.target.value});
