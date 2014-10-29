@@ -15,7 +15,7 @@ if (!module.parent) {
     .webtask('/ajax/product', app.ajax('getProduct'))
     .webtask('/1', app.page('sample1'))
     .webtask('/2', app.page('sample2'))
-    .webtask('/', app.page('sample3'))
+    .webtask('/3', app.page('sample3'))
     .listen(3000);
     console.log('Webtasks started on port 3000');
 }
