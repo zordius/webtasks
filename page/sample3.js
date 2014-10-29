@@ -8,10 +8,9 @@ module.exports = function () {
         pathModule: this.query('id').pipe(this.react('path')),
         //productModule: this.query('id').pipe(this.react('product'))
     }).transform(function (R) {
-console.log(R);
         return {
             title: R.title,
-            headerGroup: [R.headerModule],
+            headerGroup: [R.headerModule, R.pathModule],
             bodyGroup: [R.productModule]
         };
     });

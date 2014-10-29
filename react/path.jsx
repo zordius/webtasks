@@ -1,8 +1,10 @@
 /** @jsx React.DOM */
-module.export = require('react').createClass({
+var React = require('react'),
+
+Path = React.createClass({
     render: function () {
         return (
-            <ul class="path">
+            <ul className="path">
              <li>Category 1</li>
              <li>Category 2</li>
              <li>Category 3</li>
@@ -10,3 +12,5 @@ module.export = require('react').createClass({
         );
     }
 });
+
+module.exports = Path;
