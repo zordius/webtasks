@@ -24,6 +24,7 @@ console.log('product id: ' + product_id);
                 title: 'this is sample product title (id=' + product_id + ')',
                 description: 'sample product description' + apicalls,
                 price: product_id * 100,
+                category_id: product_id - 4,
             });
         }, 100);
     }, product_id);
