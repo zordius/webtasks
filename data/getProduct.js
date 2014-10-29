@@ -25,7 +25,18 @@ console.log('product id: ' + product_id);
                 description: 'sample product description' + apicalls,
                 price: product_id * 100,
                 category_id: product_id - 4,
-                limit: 10
+                specs: [
+                   {
+                       title: 'blue',
+                       id: 123,
+                       limit: 10
+                   },
+                   {
+                       title: 'red',
+                       id: 456,
+                       limit: 5
+                   }
+                ]
             });
         }, 100);
     }, product_id);
