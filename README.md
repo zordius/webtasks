@@ -106,7 +106,7 @@ dataGetArticle = function (id) {
 };
 ```
 
-All `data('getArticle')` with same id in this request refer to single webtask instance, the API call will be executed only one time in a request. Another good news is all webtask/subtask are executed parallel, you get performance boost. And, all webtasks focus on handle jobs for itself, ......
+All `data('getArticle')` with same id in this request refer to single webtask instance, the API call will be executed only one time in a request. Another good news is all webtask/subtask are executed parallel, you get performance boost. And, all webtasks focus on handle jobs for itself, you do not need to add extra code to maintain states cross different modules.
 
 Page Component
 --------------
