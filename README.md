@@ -133,6 +133,12 @@ AJAX Component
 
 AJAX is a webtask without view and focus on response json by different request. Actually AJAX is normal webtask placed under `ajax` directory, and in most case it will execute input and data subtasks.
 
+
+REACT Component
+---------------
+
+REACT is pure jsx commonjs module be placed under `react` directory. You can pipe data into react component to render static or dynamic modules, please check the Context API: `this.react` and `this.dreact` .
+
 Context API
 -----------
 
@@ -143,3 +149,5 @@ Context API
 * `this.module`
 * `this.data`
 * `this.input`
+* `this.react`
+* `this.dreact`
