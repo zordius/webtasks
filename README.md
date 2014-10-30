@@ -87,7 +87,7 @@ For example, to deliver a article page for login user brings this task depdency:
 [checkLogin] -> [getArticle] -> [setPageTitle] -> [composeModules]
 ```
 
-If we add another module depdent on another data source, then the module tasks will be appended after composeModules and make the task queue longer. When we try to speed up html deliver time, we will mess up the module composite tasks and data tasks.
+If we add another module depend on another data source, then the module tasks will be appended after composeModules and make the task queue longer. When we try to speed up html deliver time, we will mess up the module composite tasks and data tasks.
 
 When this done by webtasks it will like:
 
@@ -95,11 +95,11 @@ When this done by webtasks it will like:
 // NOTE: pseudo code
 articlePage = webtask({
     isLogin: input('isLogin'),
-    title: param('id').pipe(data('getArticle')).pick('title'),
+    title: param('id').pipe(data('getArticle')).pick('title'),   // one data('getArticle')
     story: param('id').pipe(module('article')),
 });
 
-articleModule = param('id').pipe(data('getArticle'));
+articleModule = param('id').pipe(data('getArticle'));            // another data('getArticle')
 
 dataGetArticle = function (id) {
     return webtask( ..... call API by id );
