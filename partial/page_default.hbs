@@ -12,8 +12,6 @@
 {{#each link}}
 <link rel="{{rel}}" type="{{type}}"  href="{{href}}" />
 {{/each}}
-<script src="/static/js/react.js"></script>
-<script src="/static/js/main.js"></script>
 </head>
 <body class="{{body_class}}">
 <div class="mainFrame">
@@ -28,4 +26,7 @@
  </div>
 </div>
 </body>
+<script src="/static/js/react.js"></script>
+<script src="/static/js/main.js"></script>
+{{#if dreact}}<script>{{{dreact}}}</script>{{/if}}
 </html>
