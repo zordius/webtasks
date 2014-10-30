@@ -12,12 +12,7 @@ require('node-jsx').install({extension: '.jsx'});
 /* istanbul ignore next */
 if (!module.parent) {
     app
-    .use('/jsx', browserify('./react', {
-        external: ['react'],
-        grep: /\.jsx$/,
-        transform: ['reactify']
-    }))
-    .use('/js/boundle.js', browserify(['react']))
+    .use('/static', express.static(__dirname + '/static'))
     .webtask('/module/header', app.module('header'))
     .webtask('/ajax/product', app.ajax('getProduct'))
     .webtask('/1', app.page('sample1'))
