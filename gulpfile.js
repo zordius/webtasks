@@ -1,11 +1,9 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     sourcemaps = require('gulp-sourcemaps'),
-    locate = require('./lib/locate'),
     concat = require('gulp-concat'),
+    locate = require('./lib/locate'),
     jsxs = locate.all(null, 'react');
-
-//jsxs.push('react');
 
 gulp.task('jsx', function() {
     gulp.src('react/*.jsx', { read: false })
@@ -16,10 +14,7 @@ gulp.task('jsx', function() {
         bundleExternal: false,
         transform: 'reactify'
     }))
-//    .on('prebundle', function (bundle) {
-//        bundle.external('react');
-//    })
-    .pipe(gulp.dest('static/js/'))
+    .pipe(gulp.dest('static/jsx/'))
     .pipe(concat('main.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('static/js/'));
