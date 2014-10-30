@@ -47,7 +47,8 @@
     "gulp-jshint": "1.8.6",
     "gulp-nodemon": "1.0.4",
     "gulp-rename": "1.2.0",
-    "gulp-sourcemaps": "1.2.4"
+    "gulp-sourcemaps": "1.2.4",
+    "gulp-watch": "1.1.0"
   },
   "optionalDependencies": {
     "jshint": "*"

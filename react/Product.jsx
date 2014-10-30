@@ -4,7 +4,7 @@ var React = require('react'),
 
 Product = React.createClass({
     getInitialState: function () {
-        return {selectedSpec: 1}
+        return {selectedSpec: 0}
     },
     handleSpecChange: function () {
 console.log('click!');
@@ -17,7 +17,7 @@ console.log(event.target.value);
 
         for (I=0;I<this.props.specs.length;I++) {
             specs.push(
-                <option value={this.props.specs[I].id} selected={I==this.state.selectedSpec}>{this.props.specs[I].title}</option>
+                <option value={this.props.specs[I].id}>{this.props.specs[I].title}</option>
             );
         }
 

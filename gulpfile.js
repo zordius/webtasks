@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
+    watch = require('gulp-watch'),
     locate = require('./lib/locate'),
     jsxs = locate.all(null, 'react');
 
@@ -37,13 +38,18 @@ gulp.task('lintjs', function() {
     .pipe(jshint())
 });
 
-gulp.task('develop', function() {
+gulp.task('develop', ['watch', 'server']);
+
+gulp.task('server', function() {
     nodemon({script: 'webtasks.js'})
     .on('change', ['lintjs'])
 });
 
+gulp.task('buildall', ['jsx', 'react']);
 gulp.task('default',['jsx','react']);
 
 gulp.task('watch', function() {
-    gulp.watch('jsx/*.jsx', ['default']);
+    watch('react/*.jsx', function () {
+        gulp.start('jsx');
+    });
 });

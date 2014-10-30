@@ -47,6 +47,8 @@ module.exports = Path;
 
 },{}],"./react/Path.jsx":[function(require,module,exports){
 module.exports=require('tSjdzg');
+},{}],"./react/Product.jsx":[function(require,module,exports){
+module.exports=require('FNcvG+');
 },{}],"FNcvG+":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react'),
@@ -54,7 +56,7 @@ var React = require('react'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
-        return {selectedSpec: 1}
+        return {selectedSpec: 0}
     },
     handleSpecChange: function () {
 console.log('click!');
@@ -67,7 +69,7 @@ console.log(event.target.value);
 
         for (I=0;I<this.props.specs.length;I++) {
             specs.push(
-                React.DOM.option({value: this.props.specs[I].id, selected: I==this.state.selectedSpec}, this.props.specs[I].title)
+                React.DOM.option({value: this.props.specs[I].id}, this.props.specs[I].title)
             );
         }
 
@@ -86,9 +88,7 @@ React.DOM.div(null,
 
 module.exports = Product;
 
-},{"./limitSelect.jsx":7}],"./react/Product.jsx":[function(require,module,exports){
-module.exports=require('FNcvG+');
-},{}],7:[function(require,module,exports){
+},{"./limitSelect.jsx":7}],7:[function(require,module,exports){
 module.exports=require("W+i0zc")
 },{}]},{},["W+i0zc"])
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"W+i0zc":[function(require,module,exports){
@@ -140,6 +140,8 @@ module.exports = Path;
 
 },{}],"./react/Path.jsx":[function(require,module,exports){
 module.exports=require('tSjdzg');
+},{}],"./react/Product.jsx":[function(require,module,exports){
+module.exports=require('FNcvG+');
 },{}],"FNcvG+":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react'),
@@ -147,7 +149,7 @@ var React = require('react'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
-        return {selectedSpec: 1}
+        return {selectedSpec: 0}
     },
     handleSpecChange: function () {
 console.log('click!');
@@ -160,7 +162,7 @@ console.log(event.target.value);
 
         for (I=0;I<this.props.specs.length;I++) {
             specs.push(
-                React.DOM.option({value: this.props.specs[I].id, selected: I==this.state.selectedSpec}, this.props.specs[I].title)
+                React.DOM.option({value: this.props.specs[I].id}, this.props.specs[I].title)
             );
         }
 
@@ -179,9 +181,7 @@ React.DOM.div(null,
 
 module.exports = Product;
 
-},{"./limitSelect.jsx":7}],"./react/Product.jsx":[function(require,module,exports){
-module.exports=require('FNcvG+');
-},{}],7:[function(require,module,exports){
+},{"./limitSelect.jsx":7}],7:[function(require,module,exports){
 module.exports=require("W+i0zc")
 },{}]},{},["tSjdzg"])
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"W+i0zc":[function(require,module,exports){
@@ -233,6 +233,8 @@ module.exports = Path;
 
 },{}],"./react/Path.jsx":[function(require,module,exports){
 module.exports=require('tSjdzg');
+},{}],"./react/Product.jsx":[function(require,module,exports){
+module.exports=require('FNcvG+');
 },{}],"FNcvG+":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react'),
@@ -240,7 +242,7 @@ var React = require('react'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
-        return {selectedSpec: 1}
+        return {selectedSpec: 0}
     },
     handleSpecChange: function () {
 console.log('click!');
@@ -253,7 +255,7 @@ console.log(event.target.value);
 
         for (I=0;I<this.props.specs.length;I++) {
             specs.push(
-                React.DOM.option({value: this.props.specs[I].id, selected: I==this.state.selectedSpec}, this.props.specs[I].title)
+                React.DOM.option({value: this.props.specs[I].id}, this.props.specs[I].title)
             );
         }
 
@@ -272,8 +274,6 @@ React.DOM.div(null,
 
 module.exports = Product;
 
-},{"./limitSelect.jsx":7}],"./react/Product.jsx":[function(require,module,exports){
-module.exports=require('FNcvG+');
-},{}],7:[function(require,module,exports){
+},{"./limitSelect.jsx":7}],7:[function(require,module,exports){
 module.exports=require("W+i0zc")
 },{}]},{},["FNcvG+"])
