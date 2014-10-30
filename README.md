@@ -137,7 +137,7 @@ AJAX is a webtask without view and focus on response json by different request. 
 REACT Component
 ---------------
 
-REACT is pure jsx commonjs module be placed under `react` directory. You can pipe data into react component to render static or dynamic modules, please check the Context API: `this.react` and `this.dreact` .
+<a href="http://facebook.github.io/react/">REACT</a> is pure <a href="http://facebook.github.io/react/docs/jsx-in-depth.html">jsx</a> commonjs module be placed under `react` directory. You can pipe data into react component to render static or dynamic modules, please check the Context API: `this.react` and `this.dreact` .
 
 Context API
 -----------
