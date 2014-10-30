@@ -4,18 +4,20 @@ var React = require('react'),
 
 Product = React.createClass({
     getInitialState: function () {
-        return {selectedSpec: 0}
+        return {selectedSpec: this.props.specs[0].id}
     },
     handleSpecChange: function () {
-console.log('click!');
-console.log(event.target.value);
         this.setState({selectedSpec: event.target.value});
     },
     render: function () {
         var specs = [],
+            max,
             I;
 
         for (I=0;I<this.props.specs.length;I++) {
+            if (this.props.specs[I].id == this.state.selectedSpec) {
+                max = this.props.specs[I].limit;
+            }
             specs.push(
                 <option value={this.props.specs[I].id}>{this.props.specs[I].title}</option>
             );
@@ -26,8 +28,8 @@ console.log(event.target.value);
  <h1>{this.props.title}</h1>
  <p>{this.props.description}</p>
  <span>Price: <i>$</i><b>{this.props.price}</b></span>
- <div>Pick a spec:<select onChange={this.handleSpecChange}>{specs}</select>
-  <LimitSelect max={this.props.specs[this.state.selectedSpec].limit} />
+ <div>Pick a spec:<select onChange={this.handleSpecChange} value={this.state.selectedSpec}>{specs}</select>
+  <LimitSelect max={max} />
  </div>
 </div>
         );

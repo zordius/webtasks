@@ -56,18 +56,20 @@ var React = require('react'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
-        return {selectedSpec: 0}
+        return {selectedSpec: this.props.specs[0].id}
     },
     handleSpecChange: function () {
-console.log('click!');
-console.log(event.target.value);
         this.setState({selectedSpec: event.target.value});
     },
     render: function () {
         var specs = [],
+            max,
             I;
 
         for (I=0;I<this.props.specs.length;I++) {
+            if (this.props.specs[I].id == this.state.selectedSpec) {
+                max = this.props.specs[I].limit;
+            }
             specs.push(
                 React.DOM.option({value: this.props.specs[I].id}, this.props.specs[I].title)
             );
@@ -78,8 +80,8 @@ React.DOM.div(null,
  React.DOM.h1(null, this.props.title), 
  React.DOM.p(null, this.props.description), 
  React.DOM.span(null, "Price: ", React.DOM.i(null, "$"), React.DOM.b(null, this.props.price)), 
- React.DOM.div(null, "Pick a spec:", React.DOM.select({onChange: this.handleSpecChange}, specs), 
-  LimitSelect({max: this.props.specs[this.state.selectedSpec].limit})
+ React.DOM.div(null, "Pick a spec:", React.DOM.select({onChange: this.handleSpecChange, value: this.state.selectedSpec}, specs), 
+  LimitSelect({max: max})
  )
 )
         );
@@ -149,18 +151,20 @@ var React = require('react'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
-        return {selectedSpec: 0}
+        return {selectedSpec: this.props.specs[0].id}
     },
     handleSpecChange: function () {
-console.log('click!');
-console.log(event.target.value);
         this.setState({selectedSpec: event.target.value});
     },
     render: function () {
         var specs = [],
+            max,
             I;
 
         for (I=0;I<this.props.specs.length;I++) {
+            if (this.props.specs[I].id == this.state.selectedSpec) {
+                max = this.props.specs[I].limit;
+            }
             specs.push(
                 React.DOM.option({value: this.props.specs[I].id}, this.props.specs[I].title)
             );
@@ -171,8 +175,8 @@ React.DOM.div(null,
  React.DOM.h1(null, this.props.title), 
  React.DOM.p(null, this.props.description), 
  React.DOM.span(null, "Price: ", React.DOM.i(null, "$"), React.DOM.b(null, this.props.price)), 
- React.DOM.div(null, "Pick a spec:", React.DOM.select({onChange: this.handleSpecChange}, specs), 
-  LimitSelect({max: this.props.specs[this.state.selectedSpec].limit})
+ React.DOM.div(null, "Pick a spec:", React.DOM.select({onChange: this.handleSpecChange, value: this.state.selectedSpec}, specs), 
+  LimitSelect({max: max})
  )
 )
         );
@@ -242,18 +246,20 @@ var React = require('react'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
-        return {selectedSpec: 0}
+        return {selectedSpec: this.props.specs[0].id}
     },
     handleSpecChange: function () {
-console.log('click!');
-console.log(event.target.value);
         this.setState({selectedSpec: event.target.value});
     },
     render: function () {
         var specs = [],
+            max,
             I;
 
         for (I=0;I<this.props.specs.length;I++) {
+            if (this.props.specs[I].id == this.state.selectedSpec) {
+                max = this.props.specs[I].limit;
+            }
             specs.push(
                 React.DOM.option({value: this.props.specs[I].id}, this.props.specs[I].title)
             );
@@ -264,8 +270,8 @@ React.DOM.div(null,
  React.DOM.h1(null, this.props.title), 
  React.DOM.p(null, this.props.description), 
  React.DOM.span(null, "Price: ", React.DOM.i(null, "$"), React.DOM.b(null, this.props.price)), 
- React.DOM.div(null, "Pick a spec:", React.DOM.select({onChange: this.handleSpecChange}, specs), 
-  LimitSelect({max: this.props.specs[this.state.selectedSpec].limit})
+ React.DOM.div(null, "Pick a spec:", React.DOM.select({onChange: this.handleSpecChange, value: this.state.selectedSpec}, specs), 
+  LimitSelect({max: max})
  )
 )
         );
