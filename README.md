@@ -57,7 +57,7 @@ module.exports = function () {
 </html>
 ```
 
-* Create a <a href="http://expressjs.com/">express</a> server in `server.js` :
+* Create an <a href="http://expressjs.com/">express</a> server in `server.js` :
 
 ```javascript
 /*jslint node: true */
