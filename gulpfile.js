@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
+    rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
     locate = require('./lib/locate'),
     jsxs = locate.all(null, 'react');
@@ -16,6 +17,7 @@ gulp.task('jsx', function() {
         bundleExternal: false,
         transform: 'reactify'
     }))
+    .pipe(rename({extname: '.js'}))
     .pipe(gulp.dest('static/jsx/'))
     .pipe(concat('main.js'))
     .pipe(sourcemaps.write())

@@ -7,6 +7,8 @@ Product = React.createClass({
         return {selectedSpec: 1}
     },
     handleSpecChange: function () {
+console.log('click!');
+console.log(event.target.value);
         this.setState({selectedSpec: event.target.value});
     },
     render: function () {
