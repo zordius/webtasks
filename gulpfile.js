@@ -2,6 +2,8 @@ var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
+    nodemon = require('gulp-nodemon'),
+    jshint = require('gulp-jshint'),
     locate = require('./lib/locate'),
     jsxs = locate.all(null, 'react');
 
@@ -28,8 +30,18 @@ gulp.task('react', function() {
     .pipe(gulp.dest('static/js/'));
 });
 
+gulp.task('lintjs', function() {
+    gulp.src(['data/*.js', 'module/*.js', 'page/*.js'])
+    .pipe(jshint())
+});
+
+gulp.task('develop', function() {
+    nodemon({script: 'webtasks.js'})
+    .on('change', ['lintjs'])
+});
+
 gulp.task('default',['jsx','react']);
 
 gulp.task('watch', function() {
-    gulp.watch('src/**/*.*', ['default']);
+    gulp.watch('jsx/*.jsx', ['default']);
 });
