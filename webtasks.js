@@ -3,6 +3,7 @@
 
 var express = require('express'),
     webtask = require('./lib/webtask'),
+    testlib = require('./lib/test'),
     app = module.exports = express();
 
 webtask.init(app);
