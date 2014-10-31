@@ -22,4 +22,10 @@ describe('webtask.middleware()', function () {
         assert.equal('function', typeof sample);
         done();
     });
+
+    it('should return undefined when not found', function (done) {
+        var sample = webtask.middleware('page', 'not found');
+        assert.equal(undefined, sample);
+        done();
+    });
 });
