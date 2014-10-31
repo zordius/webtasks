@@ -15,7 +15,7 @@ if (!module.parent) {
     .use('/static', express.static(__dirname + '/static'))
     .use('/module/header', app.middleware('module', 'header'))
     .use('/ajax/product', app.middleware('ajax', 'getProduct'))
-    .use('/1', app.middleware('page', 'sample1'))
+    .use('/1', app.middleware('page', 'sample'))
     .use('/2', app.middleware('page', 'sample2'))
     .use('/3', app.middleware('page', 'sample3'))
     .listen(3000);
