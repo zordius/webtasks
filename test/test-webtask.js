@@ -16,9 +16,9 @@ describe('webtask module', function () {
     });
 });
 
-describe('webtask middlewares', function () {
-    it('should get a middleware by .pageMiddleware()', function (done) {
-        var sample = webtask.pageMiddleware('sample');
+describe('webtask.middleware()', function () {
+    it('should get a page middleware', function (done) {
+        var sample = webtask.middleware('page', 'sample');
         assert.equal('function', typeof sample);
         done();
     });

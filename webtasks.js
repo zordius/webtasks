@@ -13,11 +13,11 @@ require('node-jsx').install({extension: '.jsx'});
 if (!module.parent) {
     app
     .use('/static', express.static(__dirname + '/static'))
-    .use('/module/header', app.moduleMiddleware('header'))
-    .use('/ajax/product', app.ajaxMiddleware('getProduct'))
-    .use('/1', app.pageMiddleware('sample1'))
-    .use('/2', app.pageMiddleware('sample2'))
-    .use('/3', app.pageMiddleware('sample3'))
+    .use('/module/header', app.middleware('module', 'header'))
+    .use('/ajax/product', app.middleware('ajax', 'getProduct'))
+    .use('/1', app.middleware('page', 'sample1'))
+    .use('/2', app.middleware('page', 'sample2'))
+    .use('/3', app.middleware('page', 'sample3'))
     .listen(3000);
     console.log('Webtasks started on port 3000');
 }
