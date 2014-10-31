@@ -3,7 +3,6 @@
 
 var express = require('express'),
     webtask = require('./lib/webtask'),
-    browserify = require('browserify-middleware'),
     app = module.exports = express();
 
 webtask.init(app);
