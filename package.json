@@ -34,7 +34,7 @@
   "scripts": {
     "build": "gulp",
     "coverage": "istanbul cover -- _mocha",
-    "lint": "jshint",
+    "lint": "jshint webtasks.js lib/",
     "test": "mocha"
   },
   "devDependencies": {
