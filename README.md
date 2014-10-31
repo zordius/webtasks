@@ -45,7 +45,7 @@ module.exports = function () {
 };
 ```
 
-* Create a <a href="http://handlebarsjs.com/">handlebars.js</a> view for hello.js in `view/page_hello.hbs` :
+* Create a <a href="http://handlebarsjs.com/">handlebars.js</a> view for `page/hello.js` in `view/page_hello.hbs` :
 
 ```
 <html>
