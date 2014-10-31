@@ -22,5 +22,13 @@ describe('locate', function () {
         assert.equal(true, context.isSubtask(page));
         done();
     });
+
+    it('should return a ajax tqsk', function (done) {
+        var ajax = locate(null, 'getProduct', 'ajax');
+
+        assert.equal('function', typeof ajax);
+        assert.equal(true, context.isSubtask(ajax));
+        done();
+    });
 });
 
