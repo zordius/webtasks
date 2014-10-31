@@ -1,8 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert,
-    webtask = require('../webtasks.js'),
-    subtask = require('subtask');
+    webtask = require('../webtasks.js');
 
 describe('webtask', function () {
     it('should be an express app', function (done) {
