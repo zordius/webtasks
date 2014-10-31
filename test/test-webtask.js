@@ -2,16 +2,20 @@
 
 var assert = require('chai').assert,
     webtask = require('../webtasks.js'),
-    subtask = require('subtask'),
-    express = require('express');
+    subtask = require('subtask');
 
-describe('webtask module', function () {
+describe('webtask', function () {
     it('should be an express app', function (done) {
         assert.equal('function', typeof webtask.get);
         assert.equal('function', typeof webtask.set);
         assert.equal('function', typeof webtask.use);
         assert.equal('function', typeof webtask.get);
         assert.equal('function', typeof webtask.post);
+        done();
+    });
+
+    it('should have middleware() method', function (done) {
+        assert.equal('function', typeof webtask.middleware);
         done();
     });
 });
