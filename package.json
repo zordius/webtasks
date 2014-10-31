@@ -41,6 +41,7 @@
     "chai": "*",
     "istanbul": "*",
     "mocha": "*",
+    "express-mocks-http": "0.0.11",
     "gulp": "3.8.9",
     "gulp-browserify": "0.5.0",
     "gulp-concat": "2.4.1",
