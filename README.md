@@ -144,6 +144,7 @@ REACT Component
 Context API
 -----------
 
+* `this.query`
 * `this.param`
 * `this.header`
 * `this.cookie`
