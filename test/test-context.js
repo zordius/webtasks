@@ -25,6 +25,11 @@ describe('context', function () {
         done();
     });
 
+    it('.module should be a subtask', function (done) {
+        assert.equal(true, testlib.isSubtask(testlib.getMockContext().module));
+        done();
+    });
+
     it('.page should be a subtask', function (done) {
         assert.equal(true, testlib.isSubtask(testlib.getMockContext().page));
         done();
