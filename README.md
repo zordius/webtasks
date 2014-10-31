@@ -11,6 +11,7 @@ Make developer decouple complex web application logic into small logic pieces fo
 
 * All logical components are webtasks in commonjs.
 * All webtask are async.
+* React support (and server side rendering)
 
 **Logical components in this framework**
 
