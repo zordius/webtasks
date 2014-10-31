@@ -3,6 +3,7 @@ webtasks
 
 A lightweight web framework based on <a href="https://github.com/strongloop/express">express</a> and <a href="https://github.com/zordius/subtask.js">subtask.js</a>
 
+[![Build Status](https://travis-ci.org/zordius/webtasks.svg?branch=master)](https://travis-ci.org/zordius/webtasks) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
 Features
 --------
 
