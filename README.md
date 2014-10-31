@@ -66,7 +66,7 @@ module.exports = function () {
 var app = require('webtasks');
 
 app
-.webtask(app.page('hello'))
+.use(app.middleware('page', 'hello'))
 .listen(3000);
 ```
 
