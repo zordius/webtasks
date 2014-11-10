@@ -3,7 +3,7 @@ webtasks
 
 A lightweight web framework based on <a href="https://github.com/strongloop/express">express</a> and <a href="https://github.com/zordius/subtask.js">subtask.js</a>
 
-[![npm version](https://img.shields.io/npm/v/webtasks.svg)](https://www.npmjs.org/package/webtasks) [![Dependency Status](https://david-dm.org/zordius/webtasks.png)](https://david-dm.org/zordius/webtasks) [![Build Status](https://travis-ci.org/zordius/webtasks.svg?branch=master)](https://travis-ci.org/zordius/webtasks) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
+[![npm version](https://img.shields.io/npm/v/webtasks.svg)](https://www.npmjs.org/package/webtasks) [![Dependency Status](https://david-dm.org/zordius/webtasks.png)](https://david-dm.org/zordius/webtasks) [![Build Status](https://travis-ci.org/zordius/webtasks.svg?branch=master)](https://travis-ci.org/zordius/webtasks) [![Code Climate](https://codeclimate.com/github/zordius/webtasks/badges/gpa.svg)](https://codeclimate.com/github/zordius/webtasks) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
 Features
 --------
 
