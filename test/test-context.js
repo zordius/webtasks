@@ -26,22 +26,22 @@ describe('context', function () {
     });
 
     it('.module should be a pipe', function (done) {
-        assert.equal(true, testlib.isPipe(testlib.getMockContext().module));
+        assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().module));
         done();
     });
 
     it('.page should be a pipe', function (done) {
-        assert.equal(true, testlib.isPipe(testlib.getMockContext().page));
+        assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().page));
         done();
     });
 
     it('.react should be a pipe', function (done) {
-        assert.equal(true, testlib.isPipe(testlib.getMockContext().react));
+        assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().react));
         done();
     });
 
     it('.dreact should be a pipe', function (done) {
-        assert.equal(true, testlib.isPipe(testlib.getMockContext().dreact));
+        assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().dreact));
         done();
     });
 
