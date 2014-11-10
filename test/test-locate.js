@@ -16,19 +16,19 @@ describe('locate', function () {
         done();
     });
 
-    it('should return a page task', function (done) {
+    it('should return a page task creator', function (done) {
         var page = locate(null, 'sample', 'page');
 
         assert.equal('function', typeof page);
-        assert.equal(true, testlib.isSubtask(page));
+        assert.equal(true, testlib.isSubtaskCreator(page));
         done();
     });
 
-    it('should return a ajax tqsk', function (done) {
+    it('should return a ajax task creator', function (done) {
         var ajax = locate(null, 'getProduct', 'ajax');
 
         assert.equal('function', typeof ajax);
-        assert.equal(true, testlib.isSubtask(ajax));
+        assert.equal(true, testlib.isSubtaskCreator(ajax));
         done();
     });
 });

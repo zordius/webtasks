@@ -5,23 +5,23 @@ var assert = require('chai').assert,
     context = require('../lib/context.js');
 
 describe('context', function () {
-    it('.query should be a subtask', function (done) {
-        assert.equal(true, testlib.isSubtask(testlib.getMockContext().query));
+    it('.query should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().query));
         done();
     });
 
-    it('.param should be a subtask', function (done) {
-        assert.equal(true, testlib.isSubtask(testlib.getMockContext().param));
+    it('.param should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().param));
         done();
     });
 
-    it('.cookie should be a subtask', function (done) {
-        assert.equal(true, testlib.isSubtask(testlib.getMockContext().cookie));
+    it('.cookie should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().cookie));
         done();
     });
 
-    it('.data should be a subtask', function (done) {
-        assert.equal(true, testlib.isSubtask(testlib.getMockContext().data));
+    it('.data should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().data));
         done();
     });
 
@@ -45,8 +45,8 @@ describe('context', function () {
         done();
     });
 
-    it('.task should be a subtask', function (done) {
-        assert.equal(true, testlib.isSubtask(testlib.getMockContext().task));
+    it('.task should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().task));
         done();
     });
 });
