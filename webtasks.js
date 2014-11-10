@@ -3,9 +3,9 @@
 
 var express = require('express'),
     webtask = require('./lib/webtask'),
-    testlib = require('./lib/test'),
     app = module.exports = express();
 
+app.testlib = require('./lib/test');
 webtask.init(app);
 require('node-jsx').install({extension: '.jsx'});
 
