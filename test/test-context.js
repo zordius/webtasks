@@ -25,28 +25,43 @@ describe('context', function () {
         done();
     });
 
-    it('.module should be a pipe', function (done) {
+    it('.module should be a subtask creator locator', function (done) {
         assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().module));
         done();
     });
 
-    it('.page should be a pipe', function (done) {
+    it('.module("header") should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().module('header')));
+        done();
+    });
+
+    it('.module("not_found") should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().module('not_found')));
+        done();
+    });
+
+    it('.page should be a subtask creator locator', function (done) {
         assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().page));
         done();
     });
 
-    it('.react should be a pipe', function (done) {
+    it('.react should be a subtask creator locator', function (done) {
         assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().react));
         done();
     });
 
-    it('.dreact should be a pipe', function (done) {
+    it('.dreact should be a subtask creator locator', function (done) {
         assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().dreact));
         done();
     });
 
     it('.task should be a subtask creator', function (done) {
         assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().task));
+        done();
+    });
+
+    it('.input should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().input));
         done();
     });
 });
