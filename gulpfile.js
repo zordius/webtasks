@@ -35,14 +35,14 @@ gulp.task('react', function() {
 
 gulp.task('lintjs', function() {
     gulp.src(['data/*.js', 'module/*.js', 'page/*.js'])
-    .pipe(jshint())
+    .pipe(jshint());
 });
 
 gulp.task('develop', ['watch', 'server']);
 
 gulp.task('server', function() {
     nodemon({script: 'webtasks.js'})
-    .on('change', ['lintjs'])
+    .on('change', ['lintjs']);
 });
 
 gulp.task('buildall', ['jsx', 'react']);
