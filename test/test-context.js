@@ -64,4 +64,9 @@ describe('context', function () {
         assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().input));
         done();
     });
+
+    it('.input("getSomeParams") should be a subtask', function (done) {
+        assert.equal(true, testlib.isSubtask(testlib.getMockContext().input('getSomeParams')));
+        done();
+    });
 });
