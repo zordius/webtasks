@@ -14,7 +14,7 @@ console.log('category id: ' + category_id);
         // example: async call to get product
         setTimeout(function() {
             // example: data validation after async tasks done
-            if (Math.floor(category_id) !== category_id) {
+            if (Math.floor(category_id) !== Number(category_id)) {
                 return cb();
             }
 
