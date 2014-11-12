@@ -26,6 +26,12 @@ describe('webtask.middleware()', function () {
         done();
     });
 
+    it('should get an ajax middleware', function (done) {
+        var sample = webtask.middleware('ajax', 'getProduct');
+        assert.equal('function', typeof sample);
+        done();
+    });
+
     it('should return undefined when not found', function (done) {
         var sample = webtask.middleware('page', 'not found');
         assert.equal(undefined, sample);
