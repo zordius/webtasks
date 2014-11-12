@@ -19,7 +19,7 @@ Make developer decouple complex web application logic into small logic pieces fo
 * **Data**: call api or get data from storage
 * **Module**: handle presentation logics then rendered with a view
 * **Page**: composite modules then rendered with a view
-* **React**: handle presentation logics then rendered with properties
+* **React**: handle presentation logics then rendered with given properties (data)
 * **Ajax**: collect data then output as JSON
 
 Getting Started
