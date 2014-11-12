@@ -11,10 +11,13 @@ console.log('product id: ' + product_id);
     }
 
     return this.task(function (cb) {
+        var thisTask = this;
+
         // example: async call to get product
         setTimeout(function() {
             // example: data validation after async tasks done
-            if (Math.floor(product_id) !== product_id) {
+            if (Math.floor(product_id) !== Number(product_id)) {
+                thisTask.error('data.getProduct: product id should be int!');
                 return cb();
             }
 
