@@ -85,7 +85,7 @@ About Webtask
 
 Webtask is extended from <a href="https://github.com/zordius/subtask.js">subtask</a> with <a href="#context-api">Context API</a> . Webtasks are automatic singleton per-request, developers do not need to worry about api optimization or task sequence.
 
-For example, to deliver a article page for login user brings this task depdency:
+For example, to deliver an article page for login user brings this task depdency:
 
 ```
 [checkLogin] -> [getArticle] -> [setPageTitle] -> [composeModules]
