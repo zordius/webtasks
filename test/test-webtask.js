@@ -50,8 +50,8 @@ describe('webtask.middleware()', function () {
 
         setTimeout(function () {
             assert.equal(true, noNext);
-            assert.equal('<div>OK!</div>', res._getData());
+            assert.equal('<div>OK!</div>\n', res._getData());
             done();
-        });
+        }, 100);
     });
 });
