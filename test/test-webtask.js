@@ -56,4 +56,19 @@ describe('webtask.middleware()', function () {
             noNext = false;
         });
     });
+
+    it('should call next when task failed', function (done) {
+        var errorModule = webtask.middleware('module', 'noview'),
+            res = mock.createResponse();
+
+        sinon.stub(res, 'send', function (D) {
+            res.send.restore();
+            assert.equal(false, 'res.send() should never be called');
+        });
+
+        errorModule(mock.createRequest(), res, function () {
+            // good to be here...
+            done();
+        });
+    });
 });
