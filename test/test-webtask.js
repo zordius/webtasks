@@ -2,6 +2,7 @@
 
 var assert = require('chai').assert,
     mock = require('node-mocks-http'),
+    sinon = require('sinon'),
     webtask = require('../webtasks.js');
 
 describe('webtask', function () {
@@ -44,14 +45,15 @@ describe('webtask.middleware()', function () {
             noNext = true,
             res = mock.createResponse();
 
+        sinon.stub(res, 'send', function (D) {
+            assert.equal(true, noNext);
+            assert.equal('<div>OK!</div>\n', D);
+            res.send.restore();
+            done();
+        });
+
         nothingModule(mock.createRequest(), res, function () {
             noNext = false;
         });
-
-        setTimeout(function () {
-            assert.equal(true, noNext);
-            assert.equal('<div>OK!</div>\n', res._getData());
-            done();
-        }, 100);
     });
 });
