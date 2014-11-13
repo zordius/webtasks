@@ -57,7 +57,7 @@ describe('webtask.middleware()', function () {
         });
     });
 
-    it('should call next when task failed', function (done) {
+    it('should call next when task return undefined', function (done) {
         var errorModule = webtask.middleware('module', 'noview'),
             res = mock.createResponse();
 
@@ -69,6 +69,29 @@ describe('webtask.middleware()', function () {
         errorModule(mock.createRequest(), res, function () {
             // good to be here...
             done();
+        });
+    });
+
+    it('should handle task errors', function (done) {
+        var errorModule = webtask.middleware('module', 'product'),
+            noNext = true,
+            consoleError = 0,
+            res = mock.createResponse();
+
+        sinon.stub(console, 'error', function (E) {
+            consoleError++;
+        });
+
+        sinon.stub(res, 'send', function (D) {
+            assert.equal(true, noNext);
+            assert.equal(1, consoleError);
+            res.send.restore();
+            console.error.restore();
+            done();
+        });
+
+        errorModule(mock.createRequest(), res, function () {
+            noNext = false;
         });
     });
 });
