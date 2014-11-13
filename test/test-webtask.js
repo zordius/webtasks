@@ -1,6 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert,
+    mock = require('node-mocks-http'),
     webtask = require('../webtasks.js');
 
 describe('webtask', function () {
@@ -36,5 +37,21 @@ describe('webtask.middleware()', function () {
         var sample = webtask.middleware('page', 'not found');
         assert.equal(undefined, sample);
         done();
+    });
+
+    it('should send result when task done', function (done) {
+        var nothingModule = webtask.middleware('module', 'nothing'),
+            noNext = true,
+            res = mock.createResponse();
+
+        nothingModule(mock.createRequest(), res, function () {
+            noNext = false;
+        });
+
+        setTimeout(function () {
+            assert.equal(true, noNext);
+            assert.equal('<div>OK!</div>', res._getData());
+            done();
+        });
     });
 });
