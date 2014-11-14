@@ -33,3 +33,19 @@ describe('locate', function () {
     });
 });
 
+describe('locate.contextCached', function () {
+    it('should return a fresh task when 1st run', function (done) {
+        var context1 = testlib.getMockContext(),
+            context2 = testlib.getMockContext(),
+            module1 = locate.contextCached(context1, 'header', 'module'),
+            module2 = locate.contextCached(context2, 'header', 'module');
+
+        module1().execute(function (R) {
+            this.exec = true;
+            module2().execute(function (R) {
+                assert.equal(undefined, this.exec);
+                done(); 
+            });
+        });
+    });
+});
