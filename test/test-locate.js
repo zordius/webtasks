@@ -44,7 +44,21 @@ describe('locate.contextCached', function () {
             this.exec = true;
             module2().execute(function (R) {
                 assert.equal(undefined, this.exec);
-                done(); 
+                done();
+            });
+        });
+    });
+
+    it('should return different task when arguments different', function (done) {
+        var context = testlib.getMockContext(),
+            module1 = locate.contextCached(context, 'header', 'module'),
+            module2 = locate.contextCached(context, 'header', 'module');
+
+        module1(1).execute(function (R) {
+            this.exec = true;
+            module2(2).execute(function (R) {
+                assert.equal(undefined, this.exec);
+                done();
             });
         });
     });
