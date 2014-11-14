@@ -100,3 +100,16 @@ describe('locate.files()', function () {
         done();
     });
 });
+
+describe('locate.all()', function () {
+    it('should return all files in one test_dir', function (done) {
+        mockfs({test_dir: {
+            'file1': 'OK',
+            'file2': 'ok'
+        }});
+
+        assert.deepEqual(['./test_dir/file1', './test_dir/file2'], locate.all(undefined, 'test_dir'));
+        mockfs.restore();
+        done();
+    });
+});
