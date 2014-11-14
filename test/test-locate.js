@@ -1,6 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert,
+    fs = require('fs'),
     subtask = require('subtask'),
     testlib = require('../lib/test'),
     locate = require('../lib/locate');
@@ -33,7 +34,7 @@ describe('locate', function () {
     });
 });
 
-describe('locate.contextCached', function () {
+describe('locate.contextCached()', function () {
     it('should return a fresh task when 1st run', function (done) {
         var context1 = testlib.getMockContext(),
             context2 = testlib.getMockContext(),
@@ -77,5 +78,15 @@ describe('locate.contextCached', function () {
                 done();
             });
         });
+    });
+});
+
+describe('locate.files()', function () {
+    it('should return empty array when no file in the directory', function (done) {
+        var dir = 'nothing_dir';
+        fs.mkdirSync(dir);
+        assert.deepEqual([], locate.files(dir));
+        fs.rmdirSync(dir);
+        done();
     });
 });
