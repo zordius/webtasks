@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('chai').assert,
-    fs = require('fs'),
+    mockfs = require('mock-fs'),
     subtask = require('subtask'),
     testlib = require('../lib/test'),
     locate = require('../lib/locate');
@@ -83,10 +83,20 @@ describe('locate.contextCached()', function () {
 
 describe('locate.files()', function () {
     it('should return empty array when no file in the directory', function (done) {
-        var dir = 'nothing_dir';
-        fs.mkdirSync(dir);
-        assert.deepEqual([], locate.files(dir));
-        fs.rmdirSync(dir);
+        mockfs({nothing_dir: {}});
+        assert.deepEqual([], locate.files('nothing_dir'));
+        mockfs.restore();
+        done();
+    });
+
+    it('should return all files with path name in the directory', function (done) {
+        mockfs({okdir: {
+           'file1': 'ok',
+           'file2': 'ok',
+           'file3': 'ok'
+        }});
+        assert.deepEqual(['okdir/file1', 'okdir/file2', 'okdir/file3'], locate.files('okdir/'));
+        mockfs.restore();
         done();
     });
 });
