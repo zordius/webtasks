@@ -34,7 +34,33 @@ describe('locate', function () {
     });
 });
 
-describe('locate.contextCached()', function () {
+describe('locate.subtask()', function () {
+    it('should return errored subtask creator when directory not found', function (done) {
+        var T = locate.subtask(null, 'not found', 'what');
+
+        assert.equal(true, testlib.isSubtaskCreator(T));
+        assert.equal(1, T().errors.length);
+        done();
+    });
+
+    it('should return errored subtask creator when file not found', function (done) {
+        var T = locate.subtask(null, 'not found', '.');
+
+        assert.equal(true, testlib.isSubtaskCreator(T));
+        assert.equal(1, T().errors.length);
+        done();
+    });
+
+    it('should return a ajax task creator', function (done) {
+        var ajax = locate.subtask(null, 'getProduct', 'ajax');
+
+        assert.equal('function', typeof ajax);
+        assert.equal(true, testlib.isSubtaskCreator(ajax));
+        done();
+    });
+});
+
+describe.skip('locate.contextCached()', function () {
     it('should return a fresh task when 1st run', function (done) {
         var context1 = testlib.getMockContext(),
             context2 = testlib.getMockContext(),

@@ -20,8 +20,13 @@ describe('context', function () {
         done();
     });
 
-    it('.data should be a subtask creator', function (done) {
-        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().data));
+    it('.data should be a subtask creator locator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().data));
+        done();
+    });
+
+    it('.data("getProdcut") should be a subtask creator', function (done) {
+        assert.equal(true, testlib.isSubtaskCreator(testlib.getMockContext().data('getProduct')));
         done();
     });
 
