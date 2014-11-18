@@ -29,7 +29,7 @@
     "node-jsx": "0.11.0",
     "react": "0.11.2",
     "reactify": "0.14.0",
-    "subtask": "0.0.7-2"
+    "subtask": "0.0.7-4"
   },
   "scripts": {
     "build": "gulp",
