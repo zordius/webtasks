@@ -50,7 +50,7 @@ describe('context', function () {
         done();
     });
 
-    it('.react should be a subtask creator locator', function (done) {
+    it.skip('.react should be a subtask creator locator', function (done) {
         assert.equal(true, testlib.isSubtaskCreatorFinder(testlib.getMockContext().react));
         done();
     });
