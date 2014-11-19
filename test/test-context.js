@@ -74,6 +74,18 @@ describe('context', function () {
         assert.equal(true, testlib.isSubtask(testlib.getMockContext().input('getSomeParams')));
         done();
     });
+
+    it('.reactBindStr() should return null when no react modules', function (done) {
+        assert.equal(null, testlib.getMockContext().reactBindStr());
+        done();
+    });
+
+    it('.reactBindStr() should return js code for client to bind react modules', function (done) {
+        var CX = testlib.getMockContext();
+        CX.taskPool.react = {Rid: {jsx: 'Test', props: [1, 2]}};
+        assert.equal('var React=require("react"),Test=require("./react/Test.jsx");React.renderComponent(Test.apply(Test,[1,2]), document.getElementById("Rid"))', CX.reactBindStr());
+        done();
+    });
 });
 
 describe('context tasks', function () {
