@@ -75,3 +75,25 @@ describe('context', function () {
         done();
     });
 });
+
+describe('context tasks', function () {
+    it('module("header")() should be a success task', function (done) {
+        testlib.getMockContext().module('header')().execute(function (D) {
+            assert.equal(true, D !== undefined);
+            done();
+        });
+    });
+
+    it('react("path")(productData) should be a success task', function (done) {
+        testlib.getMockContext().react('Path')({
+            path: [
+                {id: 1, title: 'root'},
+                {id: 3, title: 'second'},
+                {id: 321, title: 'final'}
+            ]
+        }).execute(function (D) {
+            assert.equal('<ul class="path"><li><a href="/cate/1">root</a></li><li><a href="/cate/3">second</a></li><li><a href="/cate/321">final</a></li></ul>', D);
+            done();
+        });
+    });
+});
