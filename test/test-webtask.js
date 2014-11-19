@@ -94,4 +94,23 @@ describe('webtask.middleware()', function () {
             noNext = false;
         });
     });
+
+    it('should handle react binding when type is page', function (done) {
+        var page = webtask.middleware('page', 'sample3'),
+            noNext = true,
+            res = mock.createResponse();
+
+        sinon.stub(res, 'send', function (D) {
+            assert.equal(true, D.match(/var React/) !== undefined);
+            assert.equal(true, noNext);
+            res.send.restore();
+            done();
+        });
+
+        page(mock.createRequest({
+            query: {id: '123'},
+        }), res, function () {
+            noNext = false;
+        });
+    });
 });
