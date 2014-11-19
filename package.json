@@ -33,6 +33,7 @@
   },
   "scripts": {
     "build": "gulp",
+    "start": "gulp develop",
     "coverage": "istanbul cover -- _mocha",
     "lint": "jshint webtasks.js lib/",
     "test": "mocha"
