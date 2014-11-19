@@ -96,6 +96,13 @@ describe('context tasks', function () {
         });
     });
 
+    it('page("sample")() should be a success task', function (done) {
+        testlib.getMockContext().page('sample')().execute(function (D) {
+            assert.equal(true, D !== undefined);
+            done();
+        });
+    });
+
     it('react("path")(productData) should be a success task', function (done) {
         testlib.getMockContext().react('Path')({
             path: [
