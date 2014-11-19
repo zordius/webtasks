@@ -115,4 +115,15 @@ describe('context tasks', function () {
             done();
         });
     });
+
+    it('react("path")(badData) should be a failed task', function (done) {
+        var CX = testlib.getMockContext(),
+            T = CX.react('Path')({});
+
+        T.execute(function (D) {
+            assert.equal(undefined, D);
+            assert.equal(1, CX.taskPool.errors.length);
+            done();
+        });
+    });
 });
