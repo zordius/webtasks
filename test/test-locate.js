@@ -125,6 +125,17 @@ describe('locate.files()', function () {
         mockfs.restore();
         done();
     });
+
+    it('should filter files by input regexp', function (done) {
+        mockfs({okdir: {
+           'file1': 'ok',
+           'fileA': 'ok',
+           'file3': 'ok'
+        }});
+        assert.deepEqual(['okdir/file1', 'okdir/file3'], locate.files('okdir/', /file\d/));
+        mockfs.restore();
+        done();
+    });
 });
 
 describe('locate.all()', function () {
@@ -135,6 +146,17 @@ describe('locate.all()', function () {
         }});
 
         assert.deepEqual(['./test_dir/file1', './test_dir/file2'], locate.all(undefined, 'test_dir'));
+        mockfs.restore();
+        done();
+    });
+
+    it('should filter files by input regexp', function (done) {
+        mockfs({test_dir: {
+            'file1': 'OK',
+            'notfile2': 'ok'
+        }});
+
+        assert.deepEqual(['./test_dir/file1'], locate.all(undefined, 'test_dir', /^file.+/));
         mockfs.restore();
         done();
     });
