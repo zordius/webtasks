@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     watch = require('gulp-watch'),
     locate = require('./lib/locate'),
-    jsxs = locate.all(null, 'react');
+    jsxs = locate.all(null, 'react', /jsx$/);
 
 gulp.task('jsx', function() {
     gulp.src('react/*.jsx', { read: false })
