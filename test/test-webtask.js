@@ -28,6 +28,12 @@ describe('webtask.middleware()', function () {
         done();
     });
 
+    it('should get a module middleware', function (done) {
+        var sample = webtask.middleware('module', 'product');
+        assert.equal('function', typeof sample);
+        done();
+    });
+
     it('should get an ajax middleware', function (done) {
         var sample = webtask.middleware('ajax', 'getProduct');
         assert.equal('function', typeof sample);
@@ -113,6 +119,51 @@ describe('webtask.middleware()', function () {
         }), res, function () {
             noNext = false;
             assert.equal(true, noNext);
+            res.send.restore();
+            done();
+        });
+    });
+});
+
+describe('webtask.middleware("ajax", "getProduct")', function () {
+    it('should send response', function (done) {
+        var page = webtask.middleware('ajax', 'getProduct'),
+            noNext = true,
+            res = mock.createResponse();
+
+        sinon.stub(res, 'send', function (D) {
+            assert.equal(true, D !== undefined);
+            assert.equal(1, D.title.match(/\.\.\./).length);
+            assert.equal(true, noNext);
+            res.send.restore();
+            done();
+        });
+
+        page(mock.createRequest({
+            query: {id: '123'},
+        }), res, function () {
+            noNext = false;
+            assert.equal(true, noNext);
+            res.send.restore();
+            done();
+        });
+    });
+
+    it('should call next', function (done) {
+        var page = webtask.middleware('ajax', 'getProduct'),
+            noSend = true,
+            res = mock.createResponse();
+
+        sinon.stub(res, 'send', function (D) {
+            noSend = false;
+            res.send.restore();
+            done();
+        });
+
+        page(mock.createRequest({
+            query: {id: '123.4'},
+        }), res, function () {
+            assert.equal(true, noSend);
             res.send.restore();
             done();
         });

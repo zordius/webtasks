@@ -18,4 +18,18 @@ describe('examples - for coverage', function () {
             done();
         });
     });
+
+    it('data("getPath") input error', function (done) {
+        testlib.getMockContext().data('getPath')().execute(function (D) {
+            assert.equal(undefined, D);
+            done();
+        });
+    });
+
+    it('data("getPath") output error', function (done) {
+        testlib.getMockContext().data('getPath')(123.4).execute(function (D) {
+            assert.equal(undefined, D);
+            done();
+        });
+    });
 });
