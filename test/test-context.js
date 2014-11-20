@@ -133,4 +133,13 @@ describe('context tasks', function () {
             done();
         });
     });
+
+    it('dreact("Bug")() should be a failed task', function (done) {
+        var CX = testlib.getMockContext(),
+            T = CX.dreact('Bug')();
+
+        assert.equal(1, CX.taskPool.errors.length);
+        assert.equal('MODULE_NOT_FOUND', CX.taskPool.errors[0].code);
+        done();
+    });
 });
