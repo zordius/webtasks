@@ -101,6 +101,7 @@ describe('webtask.middleware()', function () {
             res = mock.createResponse();
 
         sinon.stub(res, 'send', function (D) {
+            assert.equal(true, D !== undefined);
             assert.equal(true, D.match(/var React/) !== undefined);
             assert.equal(true, noNext);
             res.send.restore();
@@ -111,6 +112,9 @@ describe('webtask.middleware()', function () {
             query: {id: '123'},
         }), res, function () {
             noNext = false;
+            assert.equal(true, noNext);
+            res.send.restore();
+            done();
         });
     });
 });
