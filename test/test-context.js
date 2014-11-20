@@ -110,7 +110,7 @@ describe('context tasks', function () {
         });
     });
 
-    it('react("path")(productData) should be a success task', function (done) {
+    it('react("Path")(productData) should be a success task', function (done) {
         testlib.getMockContext().react('Path')({
             path: [
                 {id: 1, title: 'root'},
@@ -123,7 +123,7 @@ describe('context tasks', function () {
         });
     });
 
-    it('react("path")(badData) should be a failed task', function (done) {
+    it('react("Path")(badData) should be a failed task', function (done) {
         var CX = testlib.getMockContext(),
             T = CX.react('Path')({});
 
