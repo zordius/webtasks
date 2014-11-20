@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react'),
-    LimitSelect = require('./limitSelect.jsx'),
+    LimitSelect = require('./LimitSelect.jsx'),
 
 Product = React.createClass({
     getInitialState: function () {
