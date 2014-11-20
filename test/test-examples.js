@@ -32,4 +32,12 @@ describe('examples - for coverage', function () {
             done();
         });
     });
+
+    it('data("getYQLTables") success', function (done) {
+        testlib.getMockContext().data('getYQLTables')().execute(function (D) {
+            assert.equal(true, D !== undefined);
+            assert.equal(true, D.table.length > 1);
+            done();
+        });
+    });
 });
