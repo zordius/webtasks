@@ -89,6 +89,13 @@ describe('context', function () {
 });
 
 describe('context tasks', function () {
+    it('data("getProduct")(id) should be a success task', function (done) {
+        testlib.getMockContext().data('getProduct')(123).execute(function (D) {
+            assert.equal(true, D !== undefined);
+            assert.equal('this is sample product title (id=123)', D.title);
+            done();
+        });
+    });
     it('module("header")() should be a success task', function (done) {
         testlib.getMockContext().module('header')().execute(function (D) {
             assert.equal(true, D !== undefined);
