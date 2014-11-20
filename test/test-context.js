@@ -142,4 +142,12 @@ describe('context tasks', function () {
         assert.equal('MODULE_NOT_FOUND', CX.taskPool.errors[0].code);
         done();
     });
+    it('creact("Bug")() should be a failed task', function (done) {
+        var CX = testlib.getMockContext(),
+            T = CX.creact('Bug')();
+
+        assert.equal(1, CX.taskPool.errors.length);
+        assert.equal('MODULE_NOT_FOUND', CX.taskPool.errors[0].code);
+        done();
+    });
 });

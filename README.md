@@ -156,6 +156,7 @@ Context API
 * `this.input`
 * `this.react`
 * `this.dreact`
+* `this.creact`
 
 TODO
 ----
