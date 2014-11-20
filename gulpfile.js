@@ -5,11 +5,10 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
-    watch = require('gulp-watch'),
     locate = require('./lib/locate'),
     jsxs = locate.all(null, 'react', /jsx$/);
 
-gulp.task('jsx', function() {
+gulp.task('build_jsx', function() {
     gulp.src('react/*.jsx', { read: false })
     .pipe(sourcemaps.init())
     .pipe(browserify({
@@ -25,7 +24,7 @@ gulp.task('jsx', function() {
     .pipe(gulp.dest('static/js/'));
 });
 
-gulp.task('react', function() {
+gulp.task('build_react_core', function() {
     gulp.src('node_modules/react/react.js')
     .pipe(browserify({
         require: 'react'
@@ -33,23 +32,21 @@ gulp.task('react', function() {
     .pipe(gulp.dest('static/js/'));
 });
 
-gulp.task('lintjs', function() {
-    gulp.src(['data/*.js', 'module/*.js', 'page/*.js'])
+gulp.task('lint_js', function() {
+    gulp.src(['ajax/*.js', 'data/*.js', 'module/*.js', 'page/*.js'])
     .pipe(jshint());
 });
 
 gulp.task('develop', ['watch', 'server']);
 
 gulp.task('server', function() {
-    nodemon({script: 'webtasks.js'})
-    .on('change', ['lintjs']);
+    nodemon({script: 'webtasks.js', ext: 'js'})
+    .on('change', ['lint_js']);
 });
 
-gulp.task('buildall', ['jsx', 'react']);
-gulp.task('default',['jsx','react']);
+gulp.task('buildall', ['build_react_core', 'build_jsx']);
+gulp.task('default',['buildall']);
 
 gulp.task('watch', function() {
-    watch('react/*.jsx', function () {
-        gulp.start('jsx');
-    });
+    gulp.watch('react/*.jsx', ['build_jsx']);
 });

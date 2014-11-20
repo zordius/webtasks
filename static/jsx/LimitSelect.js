@@ -1,4 +1,21 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"./react/LimitSelect.jsx":[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"./react/Bug.jsx":[function(require,module,exports){
+module.exports=require('hK0KT0');
+},{}],"hK0KT0":[function(require,module,exports){
+/** @jsx React.DOM */
+var React = require('react'),
+    notfound = require('NotFoundModule'),
+
+Bug = React.createClass({displayName: 'Bug',
+    render: function () {
+        return (
+            React.createElement("div", null, "OK!")
+        );
+    }
+});
+
+module.exports = Bug;
+
+},{}],"./react/LimitSelect.jsx":[function(require,module,exports){
 module.exports=require('W+i0zc');
 },{}],"W+i0zc":[function(require,module,exports){
 /** @jsx React.DOM */
@@ -47,10 +64,12 @@ module.exports = Path;
 
 },{}],"./react/Path.jsx":[function(require,module,exports){
 module.exports=require('tSjdzg');
+},{}],"./react/Product.jsx":[function(require,module,exports){
+module.exports=require('FNcvG+');
 },{}],"FNcvG+":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react'),
-    LimitSelect = require('./limitSelect.jsx'),
+    LimitSelect = require('./LimitSelect.jsx'),
 
 Product = React.createClass({displayName: 'Product',
     getInitialState: function () {
@@ -88,8 +107,4 @@ React.createElement("div", null,
 
 module.exports = Product;
 
-},{"./limitSelect.jsx":7}],"./react/Product.jsx":[function(require,module,exports){
-module.exports=require('FNcvG+');
-},{}],7:[function(require,module,exports){
-module.exports=require("W+i0zc")
-},{}]},{},["W+i0zc"])
+},{"./LimitSelect.jsx":"W+i0zc"}]},{},["W+i0zc"])
