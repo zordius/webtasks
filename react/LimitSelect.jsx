@@ -10,7 +10,8 @@ LimitSelect = React.createClass({
             options.push(
                 <option>{I+1}</option>
             );
-        };
+        }
+
         return (
             <select>
              {options}

@@ -6,7 +6,7 @@ Path = React.createClass({
         var paths = this.props.path.map(function (P) {
             return (
                 <li><a href={'/cate/' + P.id}>{P.title}</a></li>
-            )
+            );
         });
         return (
             <ul className="path">

@@ -1,23 +1,3 @@
-require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"./react/Bug.jsx":[function(require,module,exports){
-module.exports=require('hK0KT0');
-},{}],"hK0KT0":[function(require,module,exports){
-/** @jsx React.DOM */
-var React = require('react'),
-    notfound = require('NotFoundModule'),
-
-Bug = React.createClass({displayName: 'Bug',
-    render: function () {
-        return (
-            React.createElement("div", null, "OK!")
-        );
-    }
-});
-
-module.exports = Bug;
-
-},{}],"./react/LimitSelect.jsx":[function(require,module,exports){
-module.exports=require('W+i0zc');
-},{}],"W+i0zc":[function(require,module,exports){
 /** @jsx React.DOM */
 var React = require('react'),
 
@@ -30,7 +10,8 @@ LimitSelect = React.createClass({displayName: 'LimitSelect',
             options.push(
                 React.createElement("option", null, I+1)
             );
-        };
+        }
+
         return (
             React.createElement("select", null, 
              options
@@ -41,70 +22,4 @@ LimitSelect = React.createClass({displayName: 'LimitSelect',
 
 module.exports = LimitSelect;
 
-},{}],"tSjdzg":[function(require,module,exports){
-/** @jsx React.DOM */
-var React = require('react'),
-
-Path = React.createClass({displayName: 'Path',
-    render: function () {
-        var paths = this.props.path.map(function (P) {
-            return (
-                React.createElement("li", null, React.createElement("a", {href: '/cate/' + P.id}, P.title))
-            )
-        });
-        return (
-            React.createElement("ul", {className: "path"}, 
-             paths
-            )
-        );
-    }
-});
-
-module.exports = Path;
-
-},{}],"./react/Path.jsx":[function(require,module,exports){
-module.exports=require('tSjdzg');
-},{}],"./react/Product.jsx":[function(require,module,exports){
-module.exports=require('FNcvG+');
-},{}],"FNcvG+":[function(require,module,exports){
-/** @jsx React.DOM */
-var React = require('react'),
-    LimitSelect = require('./LimitSelect.jsx'),
-
-Product = React.createClass({displayName: 'Product',
-    getInitialState: function () {
-        return {selectedSpec: this.props.specs[0].id}
-    },
-    handleSpecChange: function () {
-        this.setState({selectedSpec: event.target.value});
-    },
-    render: function () {
-        var specs = [],
-            max,
-            I;
-
-        for (I=0;I<this.props.specs.length;I++) {
-            if (this.props.specs[I].id == this.state.selectedSpec) {
-                max = this.props.specs[I].limit;
-            }
-            specs.push(
-                React.createElement("option", {value: this.props.specs[I].id}, this.props.specs[I].title)
-            );
-        }
-
-        return (
-React.createElement("div", null, 
- React.createElement("h1", null, this.props.title), 
- React.createElement("p", null, this.props.description), 
- React.createElement("span", null, "Price: ", React.createElement("i", null, "$"), React.createElement("b", null, this.props.price)), 
- React.createElement("div", null, "Pick a spec:", React.createElement("select", {onChange: this.handleSpecChange, value: this.state.selectedSpec}, specs), 
-  React.createElement(LimitSelect, {max: max})
- )
-)
-        );
-    }
-});
-
-module.exports = Product;
-
-},{"./LimitSelect.jsx":"W+i0zc"}]},{},["W+i0zc"])
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidHJhbnNmb3JtZWQuanMiLCJzb3VyY2VzIjpbbnVsbF0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLHFCQUFxQjtBQUNyQixJQUFJLEtBQUssR0FBRyxPQUFPLENBQUMsT0FBTyxDQUFDOztBQUU1QixpQ0FBaUMsMkJBQUE7SUFDN0IsTUFBTSxFQUFFLFlBQVk7UUFDaEIsSUFBSSxPQUFPLEdBQUcsRUFBRTtBQUN4QixZQUFZLENBQUMsQ0FBQzs7UUFFTixLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUMsRUFBRSxFQUFFO1lBQzNCLE9BQU8sQ0FBQyxJQUFJO2dCQUNSLG9CQUFBLFFBQU8sRUFBQSxJQUFDLEVBQUMsQ0FBQyxDQUFDLENBQVcsQ0FBQTthQUN6QixDQUFDO0FBQ2QsU0FBUzs7UUFFRDtZQUNJLG9CQUFBLFFBQU8sRUFBQSxJQUFDLEVBQUE7YUFDTixPQUFRO1lBQ0QsQ0FBQTtVQUNYO0tBQ0w7QUFDTCxDQUFDLENBQUMsQ0FBQzs7QUFFSCxNQUFNLENBQUMsT0FBTyxHQUFHLFdBQVcsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKiBAanN4IFJlYWN0LkRPTSAqL1xudmFyIFJlYWN0ID0gcmVxdWlyZSgncmVhY3QnKSxcblxuTGltaXRTZWxlY3QgPSBSZWFjdC5jcmVhdGVDbGFzcyh7XG4gICAgcmVuZGVyOiBmdW5jdGlvbiAoKSB7XG4gICAgICAgIHZhciBvcHRpb25zID0gW10sXG4gICAgICAgICAgICBJO1xuXG4gICAgICAgIGZvciAoST0wO0k8dGhpcy5wcm9wcy5tYXg7SSsrKSB7XG4gICAgICAgICAgICBvcHRpb25zLnB1c2goXG4gICAgICAgICAgICAgICAgPG9wdGlvbj57SSsxfTwvb3B0aW9uPlxuICAgICAgICAgICAgKTtcbiAgICAgICAgfVxuXG4gICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICA8c2VsZWN0PlxuICAgICAgICAgICAgIHtvcHRpb25zfVxuICAgICAgICAgICAgPC9zZWxlY3Q+XG4gICAgICAgICk7XG4gICAgfVxufSk7XG5cbm1vZHVsZS5leHBvcnRzID0gTGltaXRTZWxlY3Q7XG4iXX0=
