@@ -10,15 +10,15 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
     locate = require('./lib/locate'),
-    jsxs = locate.all(null, 'react', /jsx$/),
+    jsxs = ['react'].concat(locate.all(null, 'react', /jsx$/)),
 
 bundleAll = function (b) {
     b.bundle()
     .on('error', function (E) {
-        console.log(E);
+        gutil.log('[browserify ERROR]', gutil.colors.red(E));
     })
-    .pipe(source('static/js/main.js'))
-    .pipe(gulp.dest(''));
+    .pipe(source('main.js'))
+    .pipe(gulp.dest('static/js/'));
 //    .pipe(concat('main.js'))
 //    .pipe(sourcemaps.write())
 //    .pipe(gulp.dest('static/js/'));
@@ -27,11 +27,11 @@ bundleAll = function (b) {
 buildJsx = function (watch) {
     var b = browserify({
         cache: {},
+        packageCache: {},
         basedir: __dirname,
         require: jsxs,
-        files: jsxs,
         bundleExternal: false,
-        fullPaths: watch,
+       // fullPaths: watch,
         debug: watch
     });
 
@@ -40,6 +40,7 @@ buildJsx = function (watch) {
     if (watch) {
         b = watchify(b);
         b.on('update', function () {
+            gutil.log('[browserify] updated~');
             bundleAll(b);
         });
     }
@@ -47,26 +48,12 @@ buildJsx = function (watch) {
     bundleAll(b);
 };
 
-gulp.task('buildJsxJs', function () {
-    gulp.src('react/*.jsx')
-    .pipe(react({sourceMap: true}))
-    .pipe(rename({extname: '.js'}))
-    .pipe(gulp.dest('static/jsx/'));
-});
-
 gulp.task('build_jsx', function () {
     buildJsx(false);
 });
 
 gulp.task('watch_jsx', function () {
     buildJsx(true);
-});
-
-gulp.task('build_react_core', function () {
-    browserify({require: 'react'})
-    .bundle()
-    .pipe(source('node_modules/react/react.js'))
-    .pipe(gulp.dest('static/js/'));
 });
 
 gulp.task('lint_js', function () {
@@ -81,5 +68,5 @@ gulp.task('server', function( ) {
     .on('change', ['lint_js']);
 });
 
-gulp.task('buildall', ['build_react_core', 'build_jsx']);
+gulp.task('buildall', ['build_jsx']);
 gulp.task('default',['buildall']);
