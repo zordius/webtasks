@@ -36,24 +36,28 @@
     "build": "gulp",
     "start": "gulp develop",
     "coverage": "istanbul cover -- _mocha",
-    "lint": "jshint webtasks.js lib/",
+    "lint": "jshint webtasks.js lib/ static/jsx/",
     "test": "mocha"
   },
   "devDependencies": {
+    "browserify": "6.3.2",
     "chai": "*",
     "gulp": "3.8.9",
-    "gulp-browserify": "0.5.0",
     "gulp-concat": "2.4.1",
     "gulp-jshint": "1.8.6",
     "gulp-nodemon": "1.0.4",
+    "gulp-react": "2.0.0",
     "gulp-rename": "1.2.0",
     "gulp-sourcemaps": "1.2.4",
+    "gulp-util": "3.0.1",
     "gulp-watch": "1.1.0",
     "istanbul": "*",
     "mocha": "*",
     "mock-fs": "2.3.2",
     "node-mocks-http": "1.2.1",
-    "sinon": "1.11.1"
+    "sinon": "1.11.1",
+    "vinyl-source-stream": "1.0.0",
+    "watchify": "2.1.1"
   },
   "optionalDependencies": {
     "jshint": "*"
