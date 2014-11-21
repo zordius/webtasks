@@ -150,4 +150,19 @@ describe('context tasks', function () {
         assert.equal('MODULE_NOT_FOUND', CX.taskPool.errors[0].code);
         done();
     });
+
+    it('input("getABC")() should be a suceess task', function (done) {
+        testlib.getMockContext({
+            query: {
+                q: 'abc',
+                o: 12
+            }
+        }).input('getABC').execute(function (R) {
+            assert.deepEqual({
+                query: 'abc',
+                offset: 12
+            }, R);
+            done();
+        });
+    });
 });
