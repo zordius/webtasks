@@ -36,7 +36,7 @@
     "build": "gulp",
     "start": "gulp develop",
     "coverage": "istanbul cover -- _mocha",
-    "lint": "jshint webtasks.js lib/ static/jsx/",
+    "lint": "jshint webtasks.js lib/;jsxhint react/*",
     "test": "mocha"
   },
   "devDependencies": {
@@ -52,6 +52,7 @@
     "gulp-util": "3.0.1",
     "gulp-watch": "1.1.0",
     "istanbul": "*",
+    "jsxhint": "0.7.0",
     "mocha": "*",
     "mock-fs": "2.3.2",
     "node-mocks-http": "1.2.1",
