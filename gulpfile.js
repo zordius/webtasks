@@ -37,7 +37,7 @@ gulp.task('lint_js', function() {
     .pipe(jshint());
 });
 
-gulp.task('develop', ['watch', 'server']);
+gulp.task('develop', ['build_jsx', 'watch', 'server']);
 
 gulp.task('server', function() {
     nodemon({script: 'webtasks.js', ext: 'js'})
