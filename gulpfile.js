@@ -19,9 +19,6 @@ bundleAll = function (b) {
     })
     .pipe(source('main.js'))
     .pipe(gulp.dest('static/js/'));
-//    .pipe(concat('main.js'))
-//    .pipe(sourcemaps.write())
-//    .pipe(gulp.dest('static/js/'));
 },
 
 buildJsx = function (watch) {
@@ -29,9 +26,10 @@ buildJsx = function (watch) {
         cache: {},
         packageCache: {},
         basedir: __dirname,
+        paths: [__dirname],
         require: jsxs,
         bundleExternal: false,
-       // fullPaths: watch,
+        fullPaths: watch,
         debug: watch
     });
 
