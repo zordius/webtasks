@@ -148,14 +148,15 @@ Context API
 
 All these API return a subtask
 
-* `this.query(name)` : access to `req.query[name]`
-* `this.param(name)` : access to `req.params[name]`
-* `this.header(name)` : access to `req.header(name)`
-* `this.cookie(name)` : access to `req.cookies[name]`
+* `this.query(name)` : access to `req.query[name]` , return a subtask
+* `this.param(name)` : access to `req.params[name]` , return a subtask
+* `this.header(name)` : access to `req.header(name)` , return a subtask
+* `this.cookie(name)` : access to `req.cookies[name]` , return a subtask
+* `this.input(name)` : get a input subtask
+
 * `this.page(name)` : get a page subtask creator
 * `this.module(name)` : get a module subtask creator
 * `this.data(name)` : get a data subtask creator
-* `this.input(name)` : get a input subtask
 * `this.react` : get a react subtask creator (static)
 * `this.dreact` : get a react subtask creator (will be rendered at server side then be binded at client side)
 * `this.creact` : get a react subtask creator (will be rendered/binded at client side)
