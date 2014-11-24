@@ -3,14 +3,12 @@ var gulp = require('gulp'),
     browserify = require('browserify'),
     watchify = require('watchify'),
     source = require('vinyl-source-stream'),
-    sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
     react = require('gulp-react'),
-    rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
     locate = require('./lib/locate'),
-    jsxs = ['react'].concat(locate.all(null, 'react', /jsx$/)),
+    jsxs = locate.all(null, 'react', /jsx$/),
 
 bundleAll = function (b) {
     b.bundle()
@@ -25,14 +23,12 @@ buildJsx = function (watch) {
     var b = browserify({
         cache: {},
         packageCache: {},
-        basedir: __dirname,
-        paths: [__dirname],
-        require: jsxs,
-        bundleExternal: false,
         fullPaths: watch,
         debug: watch
     });
 
+    b.require('react', {basedir: __dirname});
+    b.require(jsxs, {basedir: __dirname});
     b.transform('reactify');
 
     if (watch) {
