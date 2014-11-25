@@ -26,11 +26,11 @@ buildJsx = function (watch) {
         cache: {},
         packageCache: {},
         fullPaths: watch,
-        entries: stream,
         debug: watch
     });
 
     b.transform('reactify');
+    b.require(stream, {expose: '$R'});
 
     if (watch) {
         b = watchify(b);
