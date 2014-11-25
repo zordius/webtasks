@@ -62,7 +62,7 @@ gulp.task('lint_js', function () {
 gulp.task('develop', ['watch_jsx', 'server']);
 
 gulp.task('server', function( ) {
-    nodemon({script: 'webtasks.js', ext: 'js'})
+    nodemon({script: require(process.cwd() + '/package.json').main, ext: 'js'})
     .on('change', ['lint_js']);
 });
 
