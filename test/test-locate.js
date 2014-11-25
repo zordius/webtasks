@@ -161,3 +161,10 @@ describe('locate.all()', function () {
         done();
     });
 });
+
+describe('locate.bundle()', function () {
+    it('should return bundle js code', function (done) {
+        assert.equal(1, locate.bundle().match(/REACTS/).length);
+        done();
+    });
+});

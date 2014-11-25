@@ -5,10 +5,12 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     concat = require('gulp-concat'),
     nodemon = require('gulp-nodemon'),
+    readable = require('stream').Readable,
     react = require('gulp-react'),
     jshint = require('gulp-jshint'),
     locate = require('./lib/locate'),
-    jsxs = locate.all(null, 'react', /jsx$/),
+    code = locate.bundle(),
+    stream = new readable,
 
 bundleAll = function (b) {
     b.bundle()
@@ -24,11 +26,10 @@ buildJsx = function (watch) {
         cache: {},
         packageCache: {},
         fullPaths: watch,
+        entries: stream,
         debug: watch
     });
 
-    b.require('react', {basedir: __dirname});
-    b.require(jsxs, {basedir: __dirname});
     b.transform('reactify');
 
     if (watch) {
@@ -41,6 +42,9 @@ buildJsx = function (watch) {
 
     bundleAll(b);
 };
+
+stream.push(code);
+stream.push(null);
 
 gulp.task('build_jsx', function () {
     buildJsx(false);
