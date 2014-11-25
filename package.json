@@ -1,6 +1,6 @@
 {
   "name": "webtasks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A lightweight web framework based on express and subtask.js",
   "author": "Zordius <zordius@yahoo-inc.com>",
   "contributors": [
