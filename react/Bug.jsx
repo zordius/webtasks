@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 var React = require('react'),
-//    notfound = require('NotFoundModule'),
+    notfound = require('NotFoundModule'),
 
 Bug = React.createClass({
     render: function () {
