@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     locate = require('./lib/locate'),
     code = locate.bundle(),
-    stream = new readable,
+    stream = new readable(),
 
 bundleAll = function (b) {
     b.bundle()
@@ -27,6 +27,8 @@ start_browserSync = function () {
         proxy: "http://localhost:3000",
         files: ["static/*/*.*"],
         port: 3001,
+        online: false,
+        open: false
     });
 },
 
