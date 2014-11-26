@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     concat = require('gulp-concat'),
     nodemon = require('nodemon'),
+    browserSync = require('browser-sync'),
     readable = require('stream').Readable,
     react = require('gulp-react'),
     jshint = require('gulp-jshint'),
@@ -21,6 +22,14 @@ bundleAll = function (b) {
     .pipe(gulp.dest('static/js/'));
 },
 
+start_browserSync = function () {
+    browserSync.init(null, {
+        proxy: "http://localhost:3000",
+        files: ["static/*/*.*"],
+        port: 3001,
+    });
+},
+
 buildJsx = function (watch) {
     var b = browserify({
         cache: {},
@@ -34,9 +43,8 @@ buildJsx = function (watch) {
 
     if (watch) {
         b = watchify(b, {delay: 1000});
-        b.on('update', function () {
-console.log(arguments);
-            gutil.log('[browserify] updated~');
+        b.on('update', function (F) {
+            gutil.log('[browserify] ' + F + ' updated');
             bundleAll(b);
         });
     }
@@ -61,9 +69,9 @@ gulp.task('lint_js', function () {
     .pipe(jshint());
 });
 
-gulp.task('develop', ['watch_jsx', 'server']);
+gulp.task('develop', ['watch_jsx', 'nodemon_server']);
 
-gulp.task('server', function() {
+gulp.task('nodemon_server', function() {
     nodemon({
         watch: 'static/js/main.js',
         script: require(process.cwd() + '/package.json').main,
@@ -71,6 +79,9 @@ gulp.task('server', function() {
     })
     .on('log', function (log) {
         gutil.log(log.colour);
+    })
+    .on('start', function () {
+        start_browserSync();
     });
 });
 

@@ -48,6 +48,7 @@
     "gulp-concat": "2.4.1",
     "gulp-jshint": "1.8.6",
     "nodemon": "1.2.1",
+    "browser-sync": "1.7.1",
     "gulp-react": "2.0.0",
     "gulp-rename": "1.2.0",
     "gulp-sourcemaps": "1.2.4",
