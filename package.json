@@ -47,7 +47,7 @@
     "gulp": "3.8.9",
     "gulp-concat": "2.4.1",
     "gulp-jshint": "1.8.6",
-    "gulp-nodemon": "1.0.4",
+    "nodemon": "1.2.1",
     "gulp-react": "2.0.0",
     "gulp-rename": "1.2.0",
     "gulp-sourcemaps": "1.2.4",
