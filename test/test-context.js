@@ -83,7 +83,7 @@ describe('context', function () {
     it('.reactBindStr() should return js code for client to bind react modules', function (done) {
         var CX = testlib.getMockContext();
         CX.taskPool.react = {Rid: {jsx: 'Test', props: [1, 2]}};
-        assert.equal('var React=require("react"),Test=React.createFactory(require("./react/Test.jsx"));React.render(Test([1,2]), document.getElementById("Rid"))', CX.reactBindStr());
+        assert.equal('require("$R")("./react/Test.jsx", [1,2], document.getElementById("Rid"));', CX.reactBindStr());
         done();
     });
 });
